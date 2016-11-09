@@ -1,6 +1,5 @@
 <?php
 include_once'adminhead.php';
-
 ?>
 
       
@@ -29,7 +28,7 @@ include_once'adminhead.php';
                                         <th>请假事由</th>
                                         <th>请假时间</th>
                                         <th>请假天数</th>
-                                        <th width="10%">操作管理</th>
+                                        <th width="15%">操作管理</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,17 +116,18 @@ include_once'adminhead.php';
                                                     <td><input id='up_day' name='up_day' placeholder="天数"  class="form-control" value="">
                                                             <label id="up_day-error"  class="error"  for="up_day"></label>
                                                     </td>
-                                                    <td width="10%"><button  type="submit" class="btn btn-default">修改</button>
-                                                    <button class="xiugai_cance_id  btn btn-default">取消</button></td>
+                                                    <td width="15%"><button  type="submit" class="btn btn-default">修改</button>
+                                                   </form> 
+                                                   <button class="xiugai_cance_id  btn btn-default">取消</button></td>
                                                     </tr>
 
                                                </tbody>  
                                             </table>
-                                         </form>
+                                         
                                         </div>
                             
 
-                           <button id='add'  class="btn btn-default">增加请假项目</button>
+                           <button id='add'  class="btn btn-default">增加</button>
                             <button id='quxiao' style="display: none;"   class="btn btn-default">取消增加</button>
                       
                         </div>

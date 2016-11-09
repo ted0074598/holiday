@@ -29,10 +29,11 @@
     <script src="../data/morris-data.js"></script>
 	<!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../script/javascript.js"></script>
+   
     <script src="../script/validation/dist/jquery.validate.min.js"></script>
     <script src="../script/validation/dist/localization/messages_zh.js"></script>
-
+    <script src="../script/javascript.js"></script>
+    <!-- javascript.js文件必须放在引用文件之后，放在jquery引用文件之后 -->
 </head>
 <style>
 .error{
@@ -99,7 +100,7 @@ $page=new PHPPage($total,20);
                             <a href=""><i class="fa  fa-gears  fa-fw"></i> 表格管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse" aria-expanded="true">
                                 <li>
-                                    <a href="list.php">配件管理</a>
+                                    <a href="list.php">请假记录管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -2,10 +2,19 @@ $(document).ready(function(){
     
 
     $('#add').click(function(){
-                    $('#add_holiday').fadeIn();
-                    $('#add_holiday').fadeIn("slow");
-                    $('#add_holiday').fadeIn(3000);
+        var $addbotton='#add_holiday';
+        $($addbotton).toggle('slow');
+        var $link=$(this);
+        if($link.text()=='增加')
+        {
+          $link.text('取消');
+        }else
+        {
+          $link.text('增加');
+        }
                   });
+
+
    $('#quxiao').click(function(){
                     $('#addtable').fadeOut();
                     $('#addtable').fadeOut("slow");
@@ -130,9 +139,7 @@ $(".radio-inline").change(function() {
                    $('#updattable').fadeOut();
                     $('#updattable').fadeOut("slow");
                     $('#updattable').fadeOut(3000);
-                    $('#fofo').fadeOut();
-                    $('#fofo').fadeOut("slow");
-                    $('#fofo').fadeOut(3000);
+                  
      })
 
 
