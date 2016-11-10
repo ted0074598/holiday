@@ -1,0 +1,18 @@
+.list
+{
+	width: 300px;
+	border:1px solid ;
+	margin:0 auto;
+}
+
+ /*处理屏幕抖动*/
+ body {background-attachment:fixed;background-image:url(about:blank);}
+ /*处理ie6兼容*/
+ #a { 
+ 	width:150px;
+ 	height:190px;
+ 	background-color:#b62125;
+ 	position:fixed !important;
+ 	position:absolute;top:0;left:50%;_top:expression(eval(document.documentElement.scrollTop)); }
+ div { width:100%;height:50px; }
+ .bg { background-color:#BFBFBF; }

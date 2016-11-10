@@ -29,7 +29,7 @@
     <script src="../data/morris-data.js"></script>
 	<!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-   
+    <script src="../script/My97DatePicker/WdatePicker.js"></script>
     <script src="../script/validation/dist/jquery.validate.min.js"></script>
     <script src="../script/validation/dist/localization/messages_zh.js"></script>
     <script src="../script/javascript.js"></script>

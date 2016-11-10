@@ -84,7 +84,7 @@ include_once'adminhead.php';
                                                     <td><input id='h_reason' name='h_reason' placeholder="事由"  class="form-control">
                                                             <label id="h_reason-error"  class="error"  for="h_reason"></label>
                                                     </td>
-                                                    <td><input id='h_time' name='h_time' placeholder="时间"  class="form-control">
+                                                    <td><input id='h_time' name='h_time' placeholder="时间" onClick="WdatePicker()"  class="form-control">
                                                             <label id="h_time-error"  class="error"  for="h_time"></label>
                                                     </td>
                                                     <td><input id='h_day' name='h_day' placeholder="天数"  class="form-control">
@@ -110,7 +110,7 @@ include_once'adminhead.php';
                                                     <td><input id='up_reason' name='up_reason' placeholder="事由"  class="form-control" value="">
                                                             <label id="up_reason-error"  class="error"  for="up_reason"></label>
                                                     </td>
-                                                    <td><input id='up_time' name='up_time' placeholder="时间"  class="form-control" value="">
+                                                    <td><input id='up_time' name='up_time' placeholder="时间" onClick="WdatePicker()"  class="form-control" value="">
                                                             <label id="up_time-error"  class="error"  for="up_time"></label>
                                                     </td>
                                                     <td><input id='up_day' name='up_day' placeholder="天数"  class="form-control" value="">
