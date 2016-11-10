@@ -7,12 +7,20 @@ $(document).ready(function(){
         var $link=$(this);
         if($link.text()=='增加')
         {
-          $link.text('取消');
+          $link.text('取    消');
         }else
         {
-          $link.text('增加');
+          $link.text('增    加');
         }
-                  });
+});
+  
+    $('.cance').click(function(){
+                    event.preventDefault();
+                    $('#updattable').fadeOut();
+                    $('#updattable').fadeOut("slow");
+                    $('#updattable').fadeOut(3000);
+                  
+     })
 
 
    $('#quxiao').click(function(){
@@ -134,13 +142,6 @@ $(".radio-inline").change(function() {
        });     
 
 
-  $('.xiugai_cance_id').click(function(){
-
-                   $('#updattable').fadeOut();
-                    $('#updattable').fadeOut("slow");
-                    $('#updattable').fadeOut(3000);
-                  
-     })
 
 
 
@@ -320,18 +321,22 @@ $(".radio-inline").change(function() {
                     
                     var t=$(this).val();
                     var id='#up_h_id'+t;
-                    var id=$(t_id).val();
-                    var name='#up_h_name'+t;
-                    var name=$(t_part).val();
-                    var photo='#up_h_photo'+t;
-                    var photo=$(t_brand).val();
-                    var reason='#up_h_reason'+t;
-                    var reason=$(t_size).val();
-                    var time='#up_h_time'+t;
-                    var time=$(t_price).val();
-                    var day='#up_h_day'+t;
-                    var day=$(t_price).val();
+                    var id=$(id).val();
 
+                    var name='#up_h_name'+t;
+                    var name=$(name).val();
+
+                    var photo='#up_h_photo'+t;
+                    var photo=$(photo).val();
+
+                    var reason='#up_h_reason'+t;
+                    var reason=$(reason).val();
+
+                    var time='#up_h_time'+t;
+                    var time=$(time).val();
+
+                    var day='#up_h_day'+t;
+                    var day=$(day).val();
 
                     $('#up_id').attr('value',id);
                     $('#up_name').attr('value',name);

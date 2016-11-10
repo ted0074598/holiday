@@ -118,7 +118,8 @@ include_once'adminhead.php';
                                                     </td>
                                                     <td width="15%"><button  type="submit" class="btn btn-default">修改</button>
                                                    </form> 
-                                                   <button class="xiugai_cance_id  btn btn-default">取消</button></td>
+                                                    <button  class="cance  btn btn-default">取消</button>
+                                                  </td>
                                                     </tr>
 
                                                </tbody>  
@@ -188,13 +189,23 @@ if(isset($_GET['part_id']))
 }
 if(isset($_POST['up_id']))
 {
+
+/*up_id
+up_name
+up_photo
+up_reason
+up_time
+up_day*/
+
+
         $up_id=$_POST['up_id'];
         $up_id="id=".$up_id;
-        $up_part=$_POST['up_part'];
-        $up_brand=$_POST['up_brand'];
-        $up_size=$_POST['up_size'];
-        $up_price=$_POST['up_price'];
-        if($m->Update("fofo_spare", array('part'=> $up_part, 'brand'=> $up_brand, 'size'=> $up_size, 'price'=> $up_price), $up_id))
+        $up_name=$_POST['up_name'];
+        $up_photo=$_POST['up_photo'];
+        $up_reason=$_POST['up_reason'];
+        $up_time=$_POST['up_time'];
+        $up_day=$_POST['up_day'];
+        if($m->Update("fofo_holiday", array('h_name'=> $up_name, 'h_photo'=> $up_photo, 'h_reason'=> $up_reason, 'h_time'=> $up_time, 'h_day'=> $up_day), $up_id))
         {
             echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
         }
