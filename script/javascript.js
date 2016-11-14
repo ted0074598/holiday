@@ -114,9 +114,7 @@ $(".radio-inline").change(function() {
                $('.part_del').click(function(){
                            if(confirm("确认删除"))
                        {
-
                             var t=$(this).val();
-                           alert(t);
                             window.location.href='list.php?part_id='+t;
                        }
                        else

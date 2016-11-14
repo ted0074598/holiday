@@ -26,8 +26,9 @@ include_once'adminhead.php';
                                         <th>姓名</th>
                                         <th>电话</th>
                                         <th>请假事由</th>
-                                        <th>请假时间</th>
-                                        <th>请假天数</th>
+                                        <th>请假开始时间</th>
+                                        <th>请假天数</th> 
+                                        <th>请假结束时间</th>
                                         <th width="15%">操作管理</th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,7 @@ include_once'adminhead.php';
      <td>'.$show['h_reason'].'</td>
      <td>'.$show['h_time'].'</td>
      <td>'.$show['h_day'].'</td>
+     <td>'.$show['h_end_time'].'</td>
      <td>
                             <button type="button" class="xiugai_id btn btn-default" value="'.$show['id'].'">修改</button>&nbsp;
                             <button type="button" class="part_del btn btn-default" value="'.$show['id'].'"> 删除</button>
@@ -168,8 +170,14 @@ if(isset($_POST['h_name']))
     $h_reason=$_POST['h_reason'];
     $h_time=$_POST['h_time'];
     $h_day=$_POST['h_day'];
-    $query="INSERT INTO `fofo_holiday`( `h_name`, `h_photo`, `h_reason`,`h_time`,`h_day`) VALUES ('".$h_name."','".$h_photo."','".$h_reason."','".$h_time."','".$h_day."')";
-    if( $m->insert($query,true))
+
+    $start_day=strtotime($h_time);
+    $end_day=$start_day+$h_day*60*60*24;
+    $h_end_time=date('Y-m-d H:i:s',$end_day);
+
+    $query="INSERT INTO `fofo_holiday`( `h_name`, `h_photo`, `h_reason`,`h_time`,`h_day`,`h_end_time`) VALUES ('".$h_name."','".$h_photo."','".$h_reason."','".$h_time."','".$h_day."','".$h_end_time."')";
+   
+    if($m->insert($query,true))
     {   
             echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
     }
