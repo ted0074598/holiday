@@ -34,26 +34,29 @@ include_once'adminhead.php';
                                 </thead>
                                 <tbody>
                                    
-                                    <?php
+ <?php
 
+                                    $total=$m->Total('fofo_holiday','h_stat=1');
+                                    $page=new PHPPage($total,10);    
+                                    $limit =$page->limit();    
 
-
-                                     $query='SELECT * FROM `fofo_holiday`';
+                                     $query='SELECT * FROM `fofo_holiday` where h_stat=1 order by h_end_time limit '.$limit;
                                      $result=$link->query($query);
                                      while ($show=$result->fetch_array(MYSQLI_ASSOC)) 
                                      {
                                             
 
-    echo ' <tr class="odd gradeX">
-    <td>'.$show['h_name'].'</td>
-    <td>'.$show['h_photo'].'</td>
-     <td>'.$show['h_reason'].'</td>
-     <td>'.$show['h_time'].'</td>
-     <td>'.$show['h_day'].'</td>
-     <td>'.$show['h_end_time'].'</td>
-     <td>
+                            echo ' <tr class="odd gradeX">
+                            <td>'.$show['h_name'].'</td>
+                            <td>'.$show['h_photo'].'</td>
+                             <td>'.$show['h_reason'].'</td>
+                             <td>'.$show['h_time'].'</td>
+                             <td>'.$show['h_day'].'</td>
+                             <td>'.$show['h_end_time'].'</td>
+                             <td>
                             <button type="button" class="xiugai_id btn btn-default" value="'.$show['id'].'">修改</button>&nbsp;
                             <button type="button" class="part_del btn btn-default" value="'.$show['id'].'"> 删除</button>
+                            <button type="button" class="xiaojia_id btn btn-default" value="'.$show['id'].'"> 销假</button>
                             <button type="button" style="display:none;"   id="up_h_id'.$show['id'].'" value="'.$show['id'].'"> </button>  
                             <button type="button" style="display:none;"   id="up_h_name'.$show['id'].'" value="'.$show['h_name'].'"> </button> 
                             <button type="button" style="display:none;"   id="up_h_photo'.$show['id'].'" value="'.$show['h_photo'].'"> </button> 
@@ -62,13 +65,18 @@ include_once'adminhead.php';
                             <button type="button" style="display:none;"   id="up_h_day'.$show['id'].'" value="'.$show['h_day'].'"> </button> 
     </td> </tr>';
                                      }
-                                     ?>
+?>
                                         
                                         
                                    
                                    
                                 </tbody>
                              </table>
+                             <div class="form-group">
+                                 <?php
+                                    echo $page->show();
+                                 ?>
+                             </div>
                             <!-- /.table-responsive -->
                              
                                         <div class="form-group">
@@ -176,10 +184,10 @@ if(isset($_POST['h_name']))
     $h_end_time=date('Y-m-d H:i:s',$end_day);
 
     $query="INSERT INTO `fofo_holiday`( `h_name`, `h_photo`, `h_reason`,`h_time`,`h_day`,`h_end_time`) VALUES ('".$h_name."','".$h_photo."','".$h_reason."','".$h_time."','".$h_day."','".$h_end_time."')";
-   
+    echo $query;
     if($m->insert($query,true))
     {   
-            echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+           // echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
     }
 
 }
@@ -195,6 +203,19 @@ if(isset($_GET['part_id']))
     }
 
 }
+if (isset($_GET['xiaojia_id'])) {
+    $up_id=$_GET['xiaojia_id'];
+    $up_id='id='.$up_id;
+    $m=new M();
+      if($m->Update("fofo_holiday", array('h_stat'=>'0'), $up_id))
+    {
+        echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+    }
+    
+}
+
+
+
 if(isset($_POST['up_id']))
 {
 
@@ -213,7 +234,14 @@ up_day*/
         $up_reason=$_POST['up_reason'];
         $up_time=$_POST['up_time'];
         $up_day=$_POST['up_day'];
-        if($m->Update("fofo_holiday", array('h_name'=> $up_name, 'h_photo'=> $up_photo, 'h_reason'=> $up_reason, 'h_time'=> $up_time, 'h_day'=> $up_day), $up_id))
+
+        $up_start_day=strtotime($up_time);
+        
+        $up_end_day=$up_start_day+$up_day*60*60*24;
+        
+        $up_h_end_time=date('Y-m-d H:i:s',$up_end_day);
+        
+        if($m->Update("fofo_holiday", array('h_name'=> $up_name, 'h_photo'=> $up_photo, 'h_reason'=> $up_reason, 'h_time'=> $up_time, 'h_day'=> $up_day,'h_end_time'=> $up_h_end_time), $up_id))
         {
             echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
         }

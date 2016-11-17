@@ -123,6 +123,31 @@ $(".radio-inline").change(function() {
                        }
 
        });     
+                    $('.xiaojia_id').click(function(){
+                           if(confirm("确认销假"))
+                       {
+                            var t=$(this).val();
+                            window.location.href='list.php?xiaojia_id='+t;
+                       }
+                       else
+                        {
+                             refresh();
+                       }
+
+       });  
+
+                          $('.xiaojia').click(function(){
+                           if(confirm("取消销假"))
+                       {
+                            var t=$(this).val();
+                            window.location.href='depat.php?xiaojia='+t;
+                       }
+                       else
+                        {
+                             refresh();
+                       }
+
+       });  
 
                $('.d_del').click(function(){
                            if(confirm("确认删除"))
@@ -391,3 +416,5 @@ $("#up_depat").validate({
           });  
 
 })
+
+

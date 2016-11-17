@@ -1,9 +1,36 @@
 .list
 {
-	width: 300px;
-	border:1px solid ;
+	width: 400px;
 	margin:0 auto;
 }
+.list div
+{
+	
+	text-align:left;
+	line-height:50px;
+}
+.table
+{
+	width: 98px;
+	float: left;
+	margin-left: 2px;
+}
+.red
+{
+	color: red;
+}
+.pagination
+{
+
+}
+.pagination li
+{
+	float: left;
+	margin-left: 10px;
+	list-style-type:none;
+}
+
+
 
  /*处理屏幕抖动*/
  body {background-attachment:fixed;background-image:url(about:blank);}

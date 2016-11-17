@@ -105,6 +105,9 @@ $page=new PHPPage($total,20);
                                 <li>
                                     <a href="list.php">请假记录管理</a>
                                 </li>
+                                <li>
+                                    <a href="depat.php">销假记录管理</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
